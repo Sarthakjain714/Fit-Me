@@ -10,7 +10,6 @@
         android:id="@+id/imageView"
         android:layout_width="50dp"
         android:layout_height="48dp"
-
         android:layout_marginBottom="5dp"
         android:src="@drawable/dailyhealthapp"
         app:layout_constraintBottom_toTopOf="@+id/fitme"
@@ -63,15 +62,14 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_toggle2"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="55dp"
             android:fontFamily="@font/arbutus_slab"
-            android:gravity="center"
+            android:gravity="start"
             android:hint="Password"
             android:inputType="textPassword"
             android:textColorHint="@color/black"
             android:textSize="22sp" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
@@ -79,11 +77,10 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/arbutus_slab"
-        android:gravity="center"
+        android:gravity="start"
         android:hint="Email"
         android:textColorHint="@color/black"
         android:textSize="22sp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -96,8 +93,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/arbutus_slab"
-        android:gravity="center"
-        android:hint="Set Username"
+        android:gravity="start"
+        android:hint="Username"
         android:textColorHint="@color/black"
         android:textSize="22sp"
 
@@ -112,7 +109,6 @@
         android:id="@+id/signupbutton2"
         android:layout_width="266dp"
         android:layout_height="47dp"
-
         android:background="@drawable/buttonbg"
         android:fontFamily="@font/arbutus_slab"
         android:text="Sign up"
