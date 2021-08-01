@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitMe">
-        <activity android:name=".medicaldetails"></activity>
-        <activity android:name=".signup" />
-        <activity android:name=".loginactivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".medicaldetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".signup"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".loginactivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
