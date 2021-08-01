@@ -10,7 +10,6 @@
         android:id="@+id/imageView"
         android:layout_width="50dp"
         android:layout_height="48dp"
-
         android:layout_marginBottom="5dp"
         android:src="@drawable/dailyhealthapp"
         app:layout_constraintBottom_toTopOf="@+id/fitme"
@@ -36,7 +35,7 @@
         android:shadowDy="10"
         android:shadowRadius="10"
         android:text="FitMe"
-        android:textColor="@color/black"
+        android:textColor="#3C3C3C"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,15 +62,14 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_toggle2"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="55dp"
             android:fontFamily="@font/arbutus_slab"
-            android:gravity="center"
+            android:gravity="start"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textColorHint="@color/black"
+            android:textColorHint="#5C5B5B"
             android:textSize="22sp" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
@@ -79,11 +77,10 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/arbutus_slab"
-        android:gravity="center"
+        android:gravity="start"
         android:hint="Email"
-        android:textColorHint="@color/black"
+        android:textColorHint="#5C5B5B"
         android:textSize="22sp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -96,11 +93,10 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/arbutus_slab"
-        android:gravity="center"
-        android:hint="Set Username"
-        android:textColorHint="@color/black"
+        android:gravity="start"
+        android:hint="Username"
+        android:textColorHint="#5C5B5B"
         android:textSize="22sp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -112,11 +108,10 @@
         android:id="@+id/signupbutton2"
         android:layout_width="266dp"
         android:layout_height="47dp"
-
         android:background="@drawable/buttonbg"
         android:fontFamily="@font/arbutus_slab"
         android:text="Sign up"
-        android:textColor="@color/black"
+        android:textColor="#4C4C4C"
         android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
