@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,23 +31,24 @@ public class signup extends AppCompatActivity {
     FirebaseAuth fAuth;
     public FirebaseFirestore fStore;
     String userid;
-
+    TextView loginhere;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         signupbutton2=findViewById(R.id.signupbutton2);
+        loginhere= findViewById(R.id.openloginactivity);
         registered_email=findViewById(R.id.RegisterEmail);
         registered_password=findViewById(R.id.RegisterPassword);
         registered_Username=findViewById(R.id.RegisterUsername);
         fAuth= FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-        if(fAuth.getCurrentUser()!=null){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            finish();
-        }
+//        if(fAuth.getCurrentUser()!=null){
+//            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//            finish();
+//        }
         signupbutton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +93,14 @@ public class signup extends AppCompatActivity {
                         }
                     }
                 });
+            }
+        });
+
+        loginhere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),loginactivity.class);
+                startActivity(intent);
             }
         });
 
