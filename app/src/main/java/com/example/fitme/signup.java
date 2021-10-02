@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +48,6 @@ public class signup extends AppCompatActivity {
 
 //        if(fAuth.getCurrentUser()!=null){
 //            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-//            finish();
 //        }
         signupbutton2.setOnClickListener(new View.OnClickListener() {
             @Override
