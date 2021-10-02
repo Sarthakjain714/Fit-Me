@@ -3,6 +3,9 @@
     package="com.example.fitme">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +13,34 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FitMe">
+        android:theme="@style/Theme.FitMe"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".trikonasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".bhujangasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".tadasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".virabhadraasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".hastuttanasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".chakraasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Pranayaam"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".paschimottanasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".vrikshaasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".gomukhasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shavasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".vajraasana"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Yoga_postures"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".medicaldetails"
             android:screenOrientation="portrait" />
@@ -20,6 +50,8 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
+
+
         <activity
             android:name=".loginactivity"
             android:screenOrientation="portrait">

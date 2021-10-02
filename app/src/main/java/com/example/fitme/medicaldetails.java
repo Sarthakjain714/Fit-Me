@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -82,6 +83,7 @@ public class medicaldetails extends AppCompatActivity {
                 documentReference.update("medicaldetails",selecteddisease);
                 Intent intent= new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
+                Toast.makeText(medicaldetails.this, "Details submitted successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
