@@ -5,9 +5,18 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -18,8 +27,15 @@ public class medicaldetails extends AppCompatActivity {
     public static ArrayList<Integer> selecteddiseaseimage = new ArrayList<>();
     public static selectedDiseaseAdapter adapter;
     public static diseaseadapter ad;
+    FirebaseFirestore fStore;
+    FirebaseAuth fAuth;
+    Button next;
     RecyclerView medicaldetails;
     RecyclerView selectedmedicaldetails;
+    String userid;
+    String email;
+    String username;
+
     public static TextView selected;
 
     @Override
@@ -28,6 +44,7 @@ public class medicaldetails extends AppCompatActivity {
         setContentView(R.layout.activity_medicaldetails);
         medicaldetails = findViewById(R.id.medicaldetails);
         selectedmedicaldetails = findViewById(R.id.selectedmedicaldetails);
+        next=findViewById(R.id.opendashboard);
         disease.add("Stroke");
         disease.add("Diabetes");
         disease.add("Cancer");
@@ -40,6 +57,11 @@ public class medicaldetails extends AppCompatActivity {
         diseaseimage.add(R.drawable.heart);
         diseaseimage.add(R.drawable.masks);
         diseaseimage.add(R.drawable.spine);
+        fStore= FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
+        userid = fAuth.getCurrentUser().getUid();
+        email = fAuth.getCurrentUser().getEmail();
+        username = fAuth.getCurrentUser().getDisplayName();
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2,RecyclerView.HORIZONTAL,false);
         medicaldetails.setLayoutManager(gridLayoutManager);
@@ -53,6 +75,18 @@ public class medicaldetails extends AppCompatActivity {
         medicaldetails.setHasFixedSize(true);
         selected = findViewById(R.id.selected);
         selected.setText("Selected:("+selecteddiseaseimage.size()+")");
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DocumentReference documentReference =fStore.collection("users").document(email);
+                documentReference.update("medicaldetails",selecteddisease);
+                Intent intent= new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                Toast.makeText(medicaldetails.this, "Details submitted successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
     public static ArrayList getselecteddiseasename(){
         return selecteddisease;
@@ -66,7 +100,6 @@ public class medicaldetails extends AppCompatActivity {
     public static ArrayList getdiseaseimage(){
         return diseaseimage;
     }
-
     public static void updateadapter(){
         Log.i("diseaseitems",selecteddiseaseimage.toString());
         adapter.notifyDataSetChanged();

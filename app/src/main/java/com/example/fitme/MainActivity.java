@@ -1,6 +1,9 @@
 package com.example.fitme;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,49 +18,40 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Button loginbutton1,signupbutton1;
 
-
+    Button home,emergency,userprofile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.startpage);
-        loginbutton1 = findViewById(R.id.loginbutton1);
-        signupbutton1=findViewById(R.id.signupbutton1);
-
-
-//login and sign up page
-    loginbutton1.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            openLoginActivity();
-        }
-    });
-    signupbutton1.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            openSignupActivity();
-        }
-    });
-
-
-//login and sign up page
-// Medical details form
-
-
-//Medical Details form
+        setContentView(R.layout.dashboard);
+        home=findViewById(R.id.dashboardhome);
+        emergency=findViewById(R.id.emergencybutton);
+        userprofile=findViewById(R.id.userprofile);
+        replaceFragment(new dashboard_menu());
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new dashboard_menu());
+            }
+        });
+        emergency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            replaceFragment(new emergency_portal());
+            }
+        });
+        userprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            replaceFragment(new user_profile());
+            }
+        });
     }
-    public void openLoginActivity()
-            {
-            Intent intent = new Intent(this,loginactivity.class);
-            startActivity(intent);
-        }
-        public void openSignupActivity()
-            {
-            Intent intent = new Intent(this,signup.class);
-            startActivity(intent);
-        }
-    //login and sign up page
-
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.dashboardframelayout,fragment);
+        fragmentTransaction.commit();
+    }
 
 }
