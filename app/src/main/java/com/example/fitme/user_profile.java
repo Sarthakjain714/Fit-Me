@@ -35,12 +35,12 @@ public class user_profile extends Fragment implements View.OnClickListener{
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     View view;
-    CircleImageView editmedicaldetails;
+    CircleImageView editmedicaldetails,editdetails;
     String emialaddress;
     String username1;
     EditText username;
     TextView emialaddresstextview,usernametextview,medicaldetailsinfo;
-    Button editdetails,savedetails;
+    Button savedetails,logout;
 
 
     @Override
@@ -54,24 +54,25 @@ public class user_profile extends Fragment implements View.OnClickListener{
         emialaddresstextview= (TextView)view.findViewById(R.id.emailaddresstextview);
         usernametextview=(TextView)view.findViewById(R.id.usernametextview);
         username.setVisibility(View.GONE);
-        editdetails=(Button) view.findViewById(R.id.editdetials);
+        logout= view.findViewById(R.id.logout);
+        editdetails= view.findViewById(R.id.editusername);
         savedetails=(Button) view.findViewById(R.id.Save);
         editmedicaldetails = view.findViewById(R.id.editmedicaldetails);
         medicaldetailsinfo= view.findViewById(R.id.medicaldetialsinfo);
         medicaldetailsinfo.setText("");
 
-
+        username.setVisibility(View.GONE);
 
         editdetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 usernametextview.setVisibility(View.GONE);
                 username.setVisibility(View.VISIBLE);
-                editdetails.setVisibility(View.GONE);
+//                editdetails.setVisibility(View.GONE);
                 savedetails.setVisibility(View.VISIBLE);
                 savedetails.setText("Save");
                 username.setText(usernametextview.getText().toString());
+                logout.setVisibility(View.GONE);
             }
         });
 
@@ -126,7 +127,7 @@ public class user_profile extends Fragment implements View.OnClickListener{
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(),medicaldetails.class);
                 startActivity(intent);
-//                Toast.makeText(getContext(), "Edited successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Edited successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
