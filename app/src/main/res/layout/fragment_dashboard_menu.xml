@@ -7,11 +7,11 @@
     tools:context=".dashboard_menu"
     android:orientation="vertical"
     >
-
+<!--    app:cardBackgroundColor="#D7F7FD"-->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardBackgroundColor="#D7F7FD"
+
         app:cardCornerRadius="15dp">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -148,7 +148,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/meditation"
+                    android:src="@drawable/sunsandstar"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     />
