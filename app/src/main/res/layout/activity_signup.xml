@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/loginprogressbar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/white"
     tools:context=".signup">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="126dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="328dp"
+        android:src="@drawable/ellipse_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="50dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="5dp"
-        android:src="@drawable/dailyhealthapp"
-        app:layout_constraintBottom_toTopOf="@+id/fitme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/vector1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.722" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/fitme"
@@ -32,14 +37,14 @@
         android:layout_marginLeft="98dp"
         android:layout_marginEnd="98dp"
         android:layout_marginRight="98dp"
-        android:fontFamily="@font/arbutus_slab"
+        android:fontFamily="@font/roboto_slab_bold"
         android:shadowColor="#EB555353"
         android:shadowDx="5"
         android:shadowDy="10"
         android:shadowRadius="10"
-        android:text="FitMe"
-        android:textColor="#3C3C3C"
-        android:textSize="48sp"
+        android:text="You Fit"
+        android:textColor="@color/black"
+        android:textSize="80sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -47,33 +52,96 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.235" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/roboto_slab_bold"
+        android:text="Your health,your way!"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColorHint="@color/black"
         app:hintAnimationEnabled="false"
         app:hintEnabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486"
+        app:layout_constraintVertical_bias="0.967"
         app:passwordToggleEnabled="true">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/RegisterPassword"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:fontFamily="@font/arbutus_slab"
-            android:gravity="start"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:textColorHint="#5C5B5B"
-            android:textSize="18sp" />
-
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/signupbutton2"
+        android:layout_width="300dp"
+        android:layout_height="47dp"
+        android:background="@drawable/buttonbg2"
+        android:fontFamily="@font/roboto_slab_bold"
+        android:text="Sign up"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterUsername"
+        app:layout_constraintVertical_bias="0.223" />
+
+    <TextView
+        android:id="@+id/openloginactivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_slab_light"
+        android:text="Already have an account?   Login here!"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/RegisterUsername"
+        app:layout_constraintVertical_bias="0.699" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="58dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/openloginactivity" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/RegisterPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/arbutus_slab"
+        android:gravity="start"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColorHint="#5C5B5B"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterUsername"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/RegisterEmail"
@@ -81,15 +149,16 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/arbutus_slab"
         android:gravity="start"
-        android:hint="Email"
+        android:hint="@string/email"
         android:textColorHint="#5C5B5B"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374" />
+        app:layout_constraintVertical_bias="0.969"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/RegisterUsername"
@@ -102,49 +171,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
-
-    <Button
-        android:id="@+id/signupbutton2"
-        android:layout_width="266dp"
-        android:layout_height="47dp"
-        android:background="@drawable/buttonbg"
-        android:fontFamily="@font/arbutus_slab"
-        android:text="Sign up"
-        android:textColor="#4C4C4C"
-        android:textSize="19dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterUsername"
-        app:layout_constraintVertical_bias="0.146" />
-
-    <TextView
-        android:id="@+id/openloginactivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Already have an account? Login here"
-        android:textColor="#5C5B5B"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/RegisterUsername"
-        app:layout_constraintVertical_bias="0.478" />
-
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="625dp" />
+        app:layout_constraintVertical_bias="0.726" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
