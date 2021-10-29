@@ -19,14 +19,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button home,emergency,userprofile;
+    Button home, emergency, userprofile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
-        home=findViewById(R.id.dashboardhome);
-        emergency=findViewById(R.id.emergencybutton);
-        userprofile=findViewById(R.id.userprofile);
+        home = findViewById(R.id.dashboardhome);
+        emergency = findViewById(R.id.emergencybutton);
+        userprofile = findViewById(R.id.userprofile);
         replaceFragment(new dashboard_menu());
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,20 +38,21 @@ public class MainActivity extends AppCompatActivity {
         emergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            replaceFragment(new emergency_portal());
+                replaceFragment(new emergency_portal());
             }
         });
         userprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            replaceFragment(new user_profile());
+                replaceFragment(new user_profile());
             }
         });
     }
-    private void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.dashboardframelayout,fragment);
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.dashboardframelayout, fragment);
         fragmentTransaction.commit();
     }
 }

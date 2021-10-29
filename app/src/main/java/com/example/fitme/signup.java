@@ -46,9 +46,6 @@ public class signup extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-//        if(fAuth.getCurrentUser()!=null){
-//            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-//        }
         signupbutton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
