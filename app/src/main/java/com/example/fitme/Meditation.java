@@ -2,7 +2,12 @@ package com.example.fitme;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -16,18 +21,20 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Locale;
 
-import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
 
 public class Meditation extends AppCompatActivity {
+    MediaPlayer player;
     private  FloatingActionButton play, stop, settings;
-    private static final int START_TIME_IN_MILLIS = 600000;
+    static int totaltime=600000;
+    private int START_TIME_IN_MILLIS = totaltime;
     private CountDownTimer countDownTimer;
 
     ProgressBar determinetime;
     private boolean TimerRunning;
     private long TimeLeftInMillis = START_TIME_IN_MILLIS;
     private TextView timer;
-    FrameLayout settingfragment;
+    int count=0;
+    static int music= R.raw.sunrise;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +44,9 @@ public class Meditation extends AppCompatActivity {
         settings= findViewById(R.id.settings);
         timer= findViewById(R.id.timer);
         determinetime = findViewById(R.id.determinetime);
-        determinetime.setProgress(3);
+        determinetime.setProgress(1);
         determinetime.setMax(100);
-        settingfragment = findViewById(R.id.settingfragments);
+
 
         Log.d("timer", "onCreate: "+determinetime.getProgress());
 
@@ -63,7 +70,9 @@ public class Meditation extends AppCompatActivity {
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                settingfragment.setVisibility(View.VISIBLE);
+               Intent intent=new Intent(getApplicationContext(),settingsmeditation.class);
+               startActivity(intent);
+               resettimer();
             }
         });
         updateCountDownText();
@@ -72,17 +81,19 @@ public class Meditation extends AppCompatActivity {
 
     int i=0;
     private void startTimer() {
-
+        if (player==null){
+            player = MediaPlayer.create(this,music);
+        }
+        player.start();
+        determinetime.setProgress(1);
         countDownTimer = new CountDownTimer(TimeLeftInMillis,1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
                 TimeLeftInMillis =millisUntilFinished;
                 i++;
-                Log.d("Testting", "onTick: "+millisUntilFinished);
                 int timeleft= (int)(TimeLeftInMillis);
-                Log.d("timeleft", "onTick: "+timeleft/START_TIME_IN_MILLIS);
-                determinetime.setProgress((int)i*100/(int)(millisUntilFinished/1000));
+                determinetime.setProgress(((int)i*100/(int)(TimeLeftInMillis/1000))/2);
                 updateCountDownText();
             }
 
@@ -95,12 +106,16 @@ public class Meditation extends AppCompatActivity {
         play.setImageResource(R.drawable.pause);
     }
     private void pauseTimer() {
+        if(player!=null){
+            player.pause();
+        }
         countDownTimer.cancel();
         TimerRunning = false;
         play.setImageResource(R.drawable.play);
-        determinetime.setProgress((int)i*100/(int)(TimeLeftInMillis/1000));
+        if(count>0){
+            determinetime.setProgress(0);
+        }
     }
-
     private void updateCountDownText() {
         int minutes = (int) (TimeLeftInMillis/1000)/60;
         int seconds = (int) (TimeLeftInMillis/1000)%60;
@@ -109,10 +124,22 @@ public class Meditation extends AppCompatActivity {
     }
 
     private void resettimer() {
-        determinetime.setProgress(0);
+        if(player !=null){
+            player.release();
+            player=null;
+        }
         pauseTimer();
-        TimeLeftInMillis = START_TIME_IN_MILLIS;
+        TimeLeftInMillis=START_TIME_IN_MILLIS;
+        determinetime.setProgress(0);
+        TimerRunning=false;
+        count++;
         updateCountDownText();
+    }
+    public static void getcustommusic(int musicid){
+        music=musicid;
+    }
+    public static void gettotaltime(int time){
+        totaltime=time;
     }
 
 }
