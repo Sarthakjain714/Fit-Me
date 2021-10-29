@@ -60,8 +60,6 @@
         <activity
             android:name=".Yoga_postures"
             android:screenOrientation="portrait" />
->>>>>>> meditation
->>>>>>> 1ba920facdae913c25db8fd936afe4b07cdb4561
         <activity
             android:name=".medicaldetails"
             android:screenOrientation="portrait" />
