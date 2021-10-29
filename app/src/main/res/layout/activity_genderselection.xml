@@ -20,6 +20,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/vector1"
@@ -46,8 +47,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.346" />
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="305dp"
+        android:layout_marginStart="265dp"
+        android:layout_marginBottom="188dp"
+        android:src="@drawable/manwalking"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.774" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="305dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="240dp"
+        android:src="@drawable/womanwalking"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="1.0" />
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/femalecardView"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="40dp"
@@ -69,6 +92,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/malecardView"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="32dp"
@@ -76,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/femalecardView"
         app:cardBackgroundColor="#C5D5EA"
         >
         <ImageView
