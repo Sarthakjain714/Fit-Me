@@ -33,9 +33,9 @@ public class loginactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginactivity);
 
-        if(fAuth.getCurrentUser()!=null){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-        }
+//        if(fAuth.getCurrentUser()!=null){
+//            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//        }
         loginbutton2= findViewById(R.id.loginbutton2);
         createnewaccount= findViewById(R.id.createnewaccount);
         progressBar= findViewById(R.id.progressBar);

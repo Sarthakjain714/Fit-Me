@@ -68,7 +68,6 @@ public class user_profile extends Fragment implements View.OnClickListener{
             public void onClick(View v) {
                 usernametextview.setVisibility(View.GONE);
                 username.setVisibility(View.VISIBLE);
-//                editdetails.setVisibility(View.GONE);
                 savedetails.setVisibility(View.VISIBLE);
                 savedetails.setText("Save");
                 username.setText(usernametextview.getText().toString());
