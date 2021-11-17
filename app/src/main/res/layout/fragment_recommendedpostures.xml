@@ -20,6 +20,7 @@
                 app:cardBackgroundColor="#E7F8FB"
                 android:layout_marginLeft="35dp"
                 app:cardCornerRadius="10dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -52,6 +53,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_toRightOf="@+id/vajrasanacardview"
                 app:cardCornerRadius="10dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -84,6 +86,7 @@
                 android:layout_below="@+id/vajrasanacardview"
                 app:cardCornerRadius="10dp"
                 android:layout_marginLeft="35dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -117,6 +120,7 @@
                 android:layout_toRightOf="@+id/shavasanacardview"
                 android:layout_below="@id/vrikshaasanacardview"
                 app:cardCornerRadius="10dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -149,6 +153,7 @@
                 android:layout_below="@+id/shavasanacardview"
                 app:cardCornerRadius="10dp"
                 android:layout_marginLeft="35dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -179,9 +184,10 @@
                 android:layout_marginTop="45dp"
                 app:cardBackgroundColor="#E7F8FB"
                 android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/shavasanacardview"
+                android:layout_toRightOf="@+id/gomukhasanacardview"
                 android:layout_below="@id/paschimottanasanacardview"
                 app:cardCornerRadius="10dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -214,6 +220,7 @@
                 android:layout_below="@+id/gomukhasanacardview"
                 app:cardCornerRadius="10dp"
                 android:layout_marginLeft="35dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -244,9 +251,10 @@
                 android:layout_marginTop="45dp"
                 app:cardBackgroundColor="#E7F8FB"
                 android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/shavasanacardview"
+                android:layout_toRightOf="@+id/chakraasanacardview"
                 android:layout_below="@id/pranayamcardview"
                 app:cardCornerRadius="10dp"
+                android:visibility="gone"
                >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -280,6 +288,7 @@
                 app:cardCornerRadius="10dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginBottom="30dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -310,9 +319,10 @@
                 android:layout_marginTop="45dp"
                 app:cardBackgroundColor="#E7F8FB"
                 android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/shavasanacardview"
+                android:layout_toRightOf="@+id/trikonasanacardview"
                 android:layout_below="@id/hastuttanasanacardview"
                 app:cardCornerRadius="10dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -346,6 +356,7 @@
                 app:cardCornerRadius="10dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginBottom="30dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -376,10 +387,11 @@
                 android:layout_marginTop="45dp"
                 app:cardBackgroundColor="#E7F8FB"
                 android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/shavasanacardview"
+                android:layout_toRightOf="@+id/tadasanacardview"
                 android:layout_below="@id/bhujangasanacardview"
                 app:cardCornerRadius="10dp"
                 android:layout_marginBottom="40dp"
+                android:visibility="gone"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"

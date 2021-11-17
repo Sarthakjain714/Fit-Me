@@ -24,7 +24,7 @@ import java.util.Locale;
 
 public class Meditation extends AppCompatActivity {
     MediaPlayer player;
-    private  FloatingActionButton play, stop, settings;
+    FloatingActionButton play, stop, settings;
     static int totaltime=600000;
     private int START_TIME_IN_MILLIS = totaltime;
     private CountDownTimer countDownTimer;

@@ -90,7 +90,6 @@ public class recommendedpostures extends Fragment {
                             else if(group.get(i).equals("Respiratory problem")){
                                 charkasana.setVisibility(View.VISIBLE);
                                 pranayama.setVisibility(View.VISIBLE);
-                                hastuttanasana.setVisibility(View.VISIBLE);
                             }
                         }
                     } else {
