@@ -11,8 +11,6 @@
         android:theme="@style/Theme.FitMe">
         <activity android:name=".BmiCalculator"
             android:screenOrientation="portrait"/>
-        <activity android:name=".settingsmeditation"
-            android:screenOrientation="portrait"/>
         <activity android:name=".waterreminder"
             android:screenOrientation="portrait"/>
         <activity android:name=".Meditation"
@@ -73,6 +71,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

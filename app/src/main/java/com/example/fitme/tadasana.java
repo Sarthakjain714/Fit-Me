@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class tadasana extends AppCompatActivity {
+public class tadasana extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

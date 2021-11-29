@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class paschimottanasana extends AppCompatActivity {
+public class paschimottanasana extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

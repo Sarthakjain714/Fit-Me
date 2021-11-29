@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
-public class loginactivity extends AppCompatActivity {
+public class loginactivity extends AppCompatActivity{
     Button loginbutton2;
     TextView createnewaccount;
     ProgressBar progressBar;
