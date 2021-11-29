@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 public class dashboard_menu extends Fragment {
     View view;
-    CardView Yoga,mediation;
+    CardView Yoga,mediation,dietplanner;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class dashboard_menu extends Fragment {
         view = inflater.inflate(R.layout.fragment_dashboard_menu, container, false);
         Yoga= view.findViewById(R.id.yoga);
         mediation= view.findViewById(R.id.meditation);
+        dietplanner= view.findViewById(R.id.dietplanner);
         Yoga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +33,13 @@ public class dashboard_menu extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(),Meditation.class);
+                startActivity(intent);
+            }
+        });
+        dietplanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),DietPlanner.class);
                 startActivity(intent);
             }
         });
