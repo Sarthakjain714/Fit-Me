@@ -75,7 +75,6 @@ public class user_profile extends Fragment implements View.OnClickListener{
             }
         });
 
-
         fAuth=FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
         emialaddress = fAuth.getCurrentUser().getEmail();

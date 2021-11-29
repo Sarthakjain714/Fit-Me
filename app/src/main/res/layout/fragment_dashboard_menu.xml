@@ -7,11 +7,9 @@
     tools:context=".dashboard_menu"
     android:orientation="vertical"
     >
-<!--    app:cardBackgroundColor="#D7F7FD"-->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         app:cardCornerRadius="15dp">
         <RelativeLayout
             android:layout_width="match_parent"

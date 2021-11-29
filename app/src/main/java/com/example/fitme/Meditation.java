@@ -70,15 +70,15 @@ public class Meditation extends AppCompatActivity {
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent=new Intent(getApplicationContext(),settingsmeditation.class);
-               startActivity(intent);
-               resettimer();
+                startTimer();
+                pauseTimer();
+                resettimer();
+                Intent intent=new Intent(getApplicationContext(),settingsmeditation.class);
+                startActivity(intent);
             }
         });
         updateCountDownText();
     }
-
-
     int i=0;
     private void startTimer() {
         if (player==null){

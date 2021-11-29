@@ -13,16 +13,19 @@ import android.widget.NumberPicker;
 import android.widget.RelativeLayout;
 
 import com.google.android.material.circularreveal.cardview.CircularRevealCardView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class settingsmeditation extends AppCompatActivity {
     NumberPicker numberPickerminutes;
     NumberPicker numberPickerseconds;
-    LinearLayout timeoptions,linearbuttons;
+    LinearLayout timeoptions;
+    LinearLayout linearbuttons;
     RelativeLayout sounds;
     CircularRevealCardView tenmins,fivteenmins,twentymins;
     ImageView sound1sunrise,sound2,sound3;
+//    FloatingActionButton savedmeditationchanges,meditationsoundoptions,times;
     CircleImageView savedmeditationchanges,meditationsoundoptions,times;
     int totalmilliseconds;
     @Override
@@ -42,7 +45,7 @@ public class settingsmeditation extends AppCompatActivity {
         sound2 = findViewById(R.id.defualtsound2image);
         sound3 = findViewById(R.id.defualtsound3image);
         meditationsoundoptions= findViewById(R.id.musicoptions);
-        timeoptions = findViewById(R.id.times);
+        timeoptions = findViewById(R.id.timeoptions);
         numberPickerseconds.setMaxValue(60);
         numberPickerseconds.setMinValue(1);
         numberPickerminutes.setMinValue(0);
@@ -58,6 +61,7 @@ public class settingsmeditation extends AppCompatActivity {
                 finish();
             }
         });
+
         meditationsoundoptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
