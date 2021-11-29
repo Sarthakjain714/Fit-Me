@@ -40,8 +40,7 @@ public class DietChart extends AppCompatActivity {
 
 
             arrayList.add(new Menu("Sunday","DietChart"));
-            arrayList.add(new Menu("Breakfast "+"\n"+
-                    "(8:00-8:30AM)","Aloo Paratha (2) + Raita (1 cup)"));
+            arrayList.add(new Menu("Breakfast "+"\n"+ "(8:00-8:30AM)","Aloo Paratha (2) + Raita (1 cup)"));
             arrayList.add(new Menu("Lunch"+"\n"+"(2:00-2:30PM)","1 cup moong dal + 1 cup bhindi + 2 chapatti + salad"));
             arrayList.add(new Menu("Evening"+"\n"+"(4:00-4:30PM)","Tea/ Coffee (1 cup) + Boiled Chana Chat (1 cup)"));
             arrayList.add(new Menu("Dinner"+"\n"+"(8:00-8:30PM)","Chapati (2) + Jeera Aloo (1 cup)"));
