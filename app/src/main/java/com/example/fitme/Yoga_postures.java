@@ -12,8 +12,8 @@ import android.view.View;
 
 public class Yoga_postures  extends AppCompatActivity{
     CardView allpostures, recommendedpostures;
-    int color=Color.parseColor("#20B3D3");
-    int color2=Color.parseColor("#34C9EA");
+    int color=Color.parseColor("#0E1C36");
+    int color2=Color.parseColor("#C5D5EA");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

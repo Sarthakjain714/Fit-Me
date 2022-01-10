@@ -10,6 +10,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseUser;
+
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,6 +31,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.w3c.dom.Text;
 
+
 import java.util.List;
 
 public class dashboard_menu extends Fragment {
@@ -30,19 +40,47 @@ public class dashboard_menu extends Fragment {
     String username1; 
     String emialaddress;
     View view;
+
+    CardView Yoga,mediation;
+
+    //username variables
+    
+
+
+    TextView datetext;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+        datetext=view.findViewById(R.id.datetext);
+        Date currentTime = Calendar.getInstance().getTime();
+        String formattedDate = DateFormat.getDateInstance(DateFormat.FULL).format(currentTime);
+
+
+
     CardView Yoga,mediation,waterreminder,dietplanner;
     TextView welcomeuser;
     ProgressBar dashboardprogressbar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         view = inflater.inflate(R.layout.fragment_dashboard_menu, container, false);
         dashboardprogressbar=view.findViewById(R.id.dashboardprogressbar);
         Yoga= view.findViewById(R.id.yoga);
         mediation= view.findViewById(R.id.meditation);
+
+
+        //Date and Time Display
+        Log.d("myLOG",currentTime.toString());
+        datetext.setText(formattedDate);
+
+
         waterreminder=view.findViewById(R.id.waterreminder);
         welcomeuser=view.findViewById(R.id.welcomeuser);
         dietplanner=view.findViewById(R.id.dietplanner);
+
 
         Yoga.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -20,6 +20,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitMe">
+
+        <activity
+            android:name=".Startpage"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BmiCalculator"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".waterreminder"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Meditation"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".Oxygenprocess"></activity>
         <activity android:name=".oxygencalculator" />
         <activity android:name=".waternotificationsettings" />
@@ -41,6 +58,7 @@
         <activity
             android:name=".Meditation"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".trikonasana"
             android:screenOrientation="portrait" />
@@ -95,15 +113,13 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".Startpage"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+
+
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <meta-data
             android:name="preloaded_fonts"

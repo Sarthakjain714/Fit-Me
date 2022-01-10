@@ -81,7 +81,10 @@ public class signup extends AppCompatActivity{
                                     Log.d("TAG", "onSuccess: User id is created for "+ userid);
                                 }
                             });
+
+
                             startActivity(new Intent(getApplicationContext(),medicaldetails.class));
+
                             finish();
                         }
                         else{
