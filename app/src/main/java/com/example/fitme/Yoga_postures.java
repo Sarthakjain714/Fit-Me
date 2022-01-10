@@ -9,9 +9,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
-public class Yoga_postures extends AppCompatActivity {
+public class Yoga_postures  extends AppCompatActivity{
     CardView allpostures, recommendedpostures;
     int color=Color.parseColor("#0E1C36");
     int color2=Color.parseColor("#C5D5EA");

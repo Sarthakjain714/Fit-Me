@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fitme">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera2" />
+    <uses-feature android:name="android.hardware.camera2.flash" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +20,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitMe">
+
         <activity
             android:name=".Startpage"
             android:screenOrientation="portrait">
@@ -24,6 +36,29 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".Meditation"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".Oxygenprocess"></activity>
+        <activity android:name=".oxygencalculator" />
+        <activity android:name=".waternotificationsettings" />
+        <activity
+            android:name=".BmiCalculator"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DietPlanner"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DietChart"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".waterreminder"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".settingsmeditation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Meditation"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".trikonasana"
             android:screenOrientation="portrait" />
@@ -35,6 +70,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".virabhadraasana"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".genderselection"
             android:screenOrientation="portrait" />
         <activity
             android:name=".hastuttanasana"
@@ -76,9 +114,16 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
 
+
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts"/>
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

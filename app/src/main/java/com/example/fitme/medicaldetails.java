@@ -83,6 +83,7 @@ public class medicaldetails extends AppCompatActivity {
                 documentReference.update("medicaldetails",selecteddisease);
                 Intent intent= new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
+                finish();
                 Toast.makeText(medicaldetails.this, "Details submitted successfully", Toast.LENGTH_SHORT).show();
             }
         });

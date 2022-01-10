@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +27,7 @@ public class recommendedpostures extends Fragment {
     FirebaseFirestore fStore;
     View view;
     String emialaddress;
+    ProgressBar recommendedposturesprogressbar;
     String username1;
     CardView vajraasana,shavasana,gomukhasana,vrikshaasana,paschimottaasana,pranayama,charkasana,hastuttanasana,vibhadrasana,tadasana,bhujangasana,trikonsana;
 
@@ -33,6 +35,7 @@ public class recommendedpostures extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_recommendedpostures, container, false);
+        recommendedposturesprogressbar=view.findViewById(R.id.recommendedposturesprogressbar);
         trikonsana=(CardView) view.findViewById(R.id.trikonasanacardview);
         bhujangasana= (CardView) view.findViewById(R.id.bhujangasanacardview);
         tadasana= (CardView) view.findViewById(R.id.tadasanacardview);
@@ -90,8 +93,8 @@ public class recommendedpostures extends Fragment {
                             else if(group.get(i).equals("Respiratory problem")){
                                 charkasana.setVisibility(View.VISIBLE);
                                 pranayama.setVisibility(View.VISIBLE);
-                                hastuttanasana.setVisibility(View.VISIBLE);
                             }
+                            recommendedposturesprogressbar.setVisibility(View.GONE);
                         }
                     } else {
                         Log.d("LOGGER", "No such document");

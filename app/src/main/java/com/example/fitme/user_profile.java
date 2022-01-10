@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,7 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class user_profile extends Fragment implements View.OnClickListener{
+public class      user_profile extends Fragment implements View.OnClickListener{
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     View view;
@@ -39,6 +40,7 @@ public class user_profile extends Fragment implements View.OnClickListener{
     String emialaddress;
     String username1;
     EditText username;
+    ProgressBar userprofileprogressbar;
     TextView emialaddresstextview,usernametextview,medicaldetailsinfo;
     Button savedetails,logout;
 
@@ -51,6 +53,7 @@ public class user_profile extends Fragment implements View.OnClickListener{
         fAuth = FirebaseAuth.getInstance();
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_user_profile, null);
         username=(EditText) view.findViewById(R.id.username1);
+        userprofileprogressbar=view.findViewById(R.id.userprofileprogressbar);
         emialaddresstextview= (TextView)view.findViewById(R.id.emailaddresstextview);
         usernametextview=(TextView)view.findViewById(R.id.usernametextview);
         username.setVisibility(View.GONE);
@@ -75,7 +78,6 @@ public class user_profile extends Fragment implements View.OnClickListener{
             }
         });
 
-
         fAuth=FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
         emialaddress = fAuth.getCurrentUser().getEmail();
@@ -96,7 +98,7 @@ public class user_profile extends Fragment implements View.OnClickListener{
                             String text= (String) medicaldetailsinfo.getText();
                             medicaldetailsinfo.setText(text+" "+(String) group.get(i)+", ");
                         }
-
+                        userprofileprogressbar.setVisibility(View.GONE);
                     } else {
                         Log.d("LOGGER", "No such document");
                     }

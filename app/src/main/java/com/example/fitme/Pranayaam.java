@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Pranayaam extends AppCompatActivity {
+public class Pranayaam extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
