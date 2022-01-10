@@ -10,14 +10,16 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Startpage extends AppCompatActivity {
 
     Button login, signup;
-//    FirebaseAuth fAuth;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startpage);
-//        if(fAuth.getCurrentUser()!=null){
-//            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-//        }
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            finish();
+        }
         login= findViewById(R.id.loginbutton1);
         signup = findViewById(R.id.signupbutton1);
         login.setOnClickListener(new View.OnClickListener() {

@@ -6,9 +6,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".all_postures"
     android:background="#D7F7FD">
+    <ProgressBar
+        android:id="@+id/recommendedposturesprogressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="180dp"
+        android:layout_gravity="center"
+        />
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">

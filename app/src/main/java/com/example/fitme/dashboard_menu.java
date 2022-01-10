@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,19 +27,23 @@ import java.util.List;
 public class dashboard_menu extends Fragment {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    String username1;
+    String username1; 
     String emialaddress;
     View view;
-    CardView Yoga,mediation,waterreminder;
+    CardView Yoga,mediation,waterreminder,dietplanner;
     TextView welcomeuser;
+    ProgressBar dashboardprogressbar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_dashboard_menu, container, false);
+        dashboardprogressbar=view.findViewById(R.id.dashboardprogressbar);
         Yoga= view.findViewById(R.id.yoga);
         mediation= view.findViewById(R.id.meditation);
         waterreminder=view.findViewById(R.id.waterreminder);
         welcomeuser=view.findViewById(R.id.welcomeuser);
+        dietplanner=view.findViewById(R.id.dietplanner);
+
         Yoga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +65,7 @@ public class dashboard_menu extends Fragment {
                         username1=(String)document.getString("username");
 
                         welcomeuser.setText("Welcome "+username1);
+                        dashboardprogressbar.setVisibility(View.GONE);
 
                     } else {
                         Log.d("LOGGER", "No such document");
@@ -80,7 +86,14 @@ public class dashboard_menu extends Fragment {
         waterreminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), com.example.fitme.waterreminder.class);
+                Intent intent = new Intent(getContext(), waterreminder.class);
+                startActivity(intent);
+            }
+        });
+        dietplanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),DietPlanner.class);
                 startActivity(intent);
             }
         });
