@@ -83,7 +83,8 @@ public class signup extends AppCompatActivity {
                                     Log.d("TAG", "onSuccess: User id is created for "+ userid);
                                 }
                             });
-                            startActivity(new Intent(getApplicationContext(),medicaldetails.class));
+                            startActivity(new Intent(getApplicationContext(),genderselection.class));
+                            finish();
                         }
                         else{
                             Toast.makeText(signup.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
