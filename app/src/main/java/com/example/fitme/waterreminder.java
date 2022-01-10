@@ -1,29 +1,47 @@
 package com.example.fitme;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.icu.util.Calendar;
+import android.icu.util.TimeZone;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import java.lang.Math;
+import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.lang.Math;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+import java.text.SimpleDateFormat;
 public class waterreminder extends AppCompatActivity {
     ProgressBar watertracker;
     TextView waterprogress;
     FloatingActionButton addtoprogress;
     CardView addwater,addcofee,addtea,addsoftdrink,addjuice;
+    CircleImageView messagesettings;
+    int currentday=1;
     int selected;
     int color2= Color.parseColor("#ABC9FB");
     int colorwhite = Color.parseColor("#FFFFFF");
     float progress=0;
     int textprogress=0;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +56,31 @@ public class waterreminder extends AppCompatActivity {
         addtea=findViewById(R.id.addtea);
         addsoftdrink=findViewById(R.id.addsoftdrink);
         addjuice=findViewById(R.id.addjuice);
+        messagesettings=findViewById(R.id.messagesettings);
+//        Date currentTime = Calendar.getInstance().getTime();
+        loaddata();
+        Date currentdateassign=new Date();
+
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+
+        Log.d("currentdate", "onCreate: "+formatter.format(currentdateassign));
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        Log.d("currentday", "currentday "+dayOfWeek+"  "+ currentday);
+//        if(currentTime.equals("00 00 00 00 00 00"));
+        if(dayOfWeek!=currentday){
+            System.out.println("i am in this block");
+            currentday=dayOfWeek;
+            progress=0;
+            textprogress=0;
+            savedata();
+            loaddata();
+            waterprogress.setText(""+0+" OF 2400");
+            watertracker.setProgress(Math.round(0));
+        }
+        Log.d("currentday", "currentday "+dayOfWeek+"  "+ currentday);
+
+        FirebaseMessaging.getInstance().subscribeToTopic("notification");
 
         addtoprogress.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +90,6 @@ public class waterreminder extends AppCompatActivity {
                     progress = progress+(200*100/2400);
                     watertracker.setProgress(Math.round(progress));
                     textprogress=textprogress+200;
-                    waterprogress.setText(""+textprogress+"OF 2400");
                     addwater.setCardBackgroundColor(colorwhite);
                     selected=10;
                 }
@@ -55,7 +97,6 @@ public class waterreminder extends AppCompatActivity {
                     progress = progress+(100*100/2400);
                     watertracker.setProgress(Math.round(progress));
                     textprogress=textprogress+100;
-                    waterprogress.setText(""+textprogress+"OF 2400");
                     addcofee.setCardBackgroundColor(colorwhite);
                     selected=10;
                 }
@@ -63,7 +104,6 @@ public class waterreminder extends AppCompatActivity {
                     progress = progress+(150*100/2400);
                     watertracker.setProgress(Math.round(progress));
                     textprogress=textprogress+150;
-                    waterprogress.setText(""+textprogress+"OF 2400");
                     addtea.setCardBackgroundColor(colorwhite);
                     selected=10;
                 }
@@ -71,7 +111,6 @@ public class waterreminder extends AppCompatActivity {
                     progress = progress+(250*100/2400)+1;
                     watertracker.setProgress(Math.round(progress));
                     textprogress=textprogress+250;
-                    waterprogress.setText(""+textprogress+"OF 2400");
                     addsoftdrink.setCardBackgroundColor(colorwhite);
                     selected=10;
                 }
@@ -79,13 +118,13 @@ public class waterreminder extends AppCompatActivity {
                     progress = progress+(200*100/2400);
                     watertracker.setProgress(Math.round(progress));
                     textprogress=textprogress+200;
-                    waterprogress.setText(""+textprogress+"OF 2400");
                     addjuice.setCardBackgroundColor(colorwhite);
                     selected=10;
                 }
                 else if(selected==10){
                     Toast.makeText(waterreminder.this, "Please select an item to add", Toast.LENGTH_SHORT).show();
                 }
+                waterprogress.setText(""+textprogress+" OF 2400");
                 Log.d("waterprogress", "onClick: "+progress);
             }
         });
@@ -144,6 +183,36 @@ public class waterreminder extends AppCompatActivity {
                 addsoftdrink.setCardBackgroundColor(colorwhite);
             }
         });
+        messagesettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),waternotificationsettings.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+    void savedata(){
 
+            SharedPreferences sharedpreference =getSharedPreferences("water",MODE_PRIVATE);
+            SharedPreferences.Editor editor =sharedpreference.edit();
+            editor.putInt("progress",textprogress);
+            editor.putFloat("barprogress",progress);
+            editor.putInt("daycheck",currentday);
+            editor.apply();
+    }
+    void loaddata(){
+                SharedPreferences getvalue=getSharedPreferences("water", MODE_PRIVATE);
+                textprogress = getvalue.getInt("progress",MODE_PRIVATE);
+                progress = getvalue.getFloat("barprogress",MODE_PRIVATE);
+                currentday=getvalue.getInt("daycheck",MODE_PRIVATE);
+                waterprogress.setText(""+textprogress+" OF 2400");
+                watertracker.setProgress(Math.round(progress));
+                Log.d("waterreminder", "onClick: "+textprogress+ " "+progress);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        savedata();
     }
 }

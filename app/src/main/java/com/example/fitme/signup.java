@@ -82,6 +82,7 @@ public class signup extends AppCompatActivity{
                                 }
                             });
                             startActivity(new Intent(getApplicationContext(),medicaldetails.class));
+                            finish();
                         }
                         else{
                             Toast.makeText(signup.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();

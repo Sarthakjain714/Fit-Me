@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,7 +26,6 @@ public class settingsmeditation extends AppCompatActivity {
     RelativeLayout sounds;
     CircularRevealCardView tenmins,fivteenmins,twentymins;
     ImageView sound1sunrise,sound2,sound3;
-//    FloatingActionButton savedmeditationchanges,meditationsoundoptions,times;
     CircleImageView savedmeditationchanges,meditationsoundoptions,times;
     int totalmilliseconds;
     @Override
@@ -50,12 +50,12 @@ public class settingsmeditation extends AppCompatActivity {
         numberPickerseconds.setMinValue(1);
         numberPickerminutes.setMinValue(0);
         numberPickerminutes.setMaxValue(60);
-        totalmilliseconds=((numberPickerseconds.getValue()*60+numberPickerminutes.getValue())*1000);
-
         savedmeditationchanges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Meditation.gettotaltime(totalmilliseconds);
+                Log.d("number picker", "onCreate: "+numberPickerseconds.getValue()+"  "+numberPickerminutes.getValue());
+                totalmilliseconds=((numberPickerseconds.getValue()*60+numberPickerminutes.getValue())*1000);
+                Meditation.totaltime=totalmilliseconds;
                 Intent intent = new Intent(getApplicationContext(), Meditation.class);
                 startActivity(intent);
                 finish();
@@ -78,26 +78,28 @@ public class settingsmeditation extends AppCompatActivity {
                 LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams)linearbuttons.getLayoutParams();
                 lp.setMargins(0, 120, 0, 0);
                 linearbuttons.setLayoutParams(lp);
-            } 
+            }
         });
+        int timertime=0;
         tenmins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Meditation.gettotaltime(600000);
+                Meditation.totaltime=600000;
                 timeoptions.setVisibility(View.GONE);
             }
         });
         fivteenmins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Meditation.gettotaltime(900000);
+                Meditation.totaltime=900000;
+
                 timeoptions.setVisibility(View.GONE);
             }
         });
         twentymins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Meditation.gettotaltime(1200000);
+                Meditation.totaltime=1200000;
                 timeoptions.setVisibility(View.GONE);
             }
         });
@@ -123,5 +125,4 @@ public class settingsmeditation extends AppCompatActivity {
             }
         });
     }
-
 }

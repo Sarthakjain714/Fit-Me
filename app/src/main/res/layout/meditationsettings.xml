@@ -62,13 +62,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="100dp"
-            android:visibility="gone">
+            android:visibility="gone"
+            >
 
             <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+                android:id="@+id/tenmins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                app:cardElevation="20dp">
+                app:cardElevation="20dp"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -86,10 +89,12 @@
             </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
 
             <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+                android:id="@+id/fifteenmins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                app:cardElevation="20dp">
+                app:cardElevation="20dp"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -107,10 +112,12 @@
             </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
 
             <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+                android:id="@+id/twentymins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                app:cardElevation="20dp">
+                app:cardElevation="20dp"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -202,21 +209,21 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginHorizontal="35dp"
-                 />
+                />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/savemeditionchange"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginHorizontal="35dp"
-                 />
+                />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/settimes"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginHorizontal="35dp"
-                 />
+                />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
