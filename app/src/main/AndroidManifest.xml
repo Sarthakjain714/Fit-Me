@@ -40,23 +40,16 @@
         <activity android:name=".Oxygenprocess"></activity>
         <activity android:name=".oxygencalculator" />
         <activity android:name=".waternotificationsettings" />
-        <activity
-            android:name=".BmiCalculator"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".DietPlanner"
             android:screenOrientation="portrait" />
         <activity
             android:name=".DietChart"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".waterreminder"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".settingsmeditation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Meditation"
             android:screenOrientation="portrait" />
 
         <activity
@@ -113,13 +106,6 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
-
-
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"
