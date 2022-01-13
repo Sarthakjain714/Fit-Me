@@ -5,13 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     tools:context=".dashboard_menu">
 
-
-    tools:context=".dashboard_menu"
-    android:orientation="vertical"
-    >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/welcomecardview"
@@ -28,15 +23,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.116">
-
-
-        <TextView
+       <TextView
             android:id="@+id/welcomeuser"
-
-        android:layout_height="match_parent"
-        app:cardCornerRadius="15dp">
-        <RelativeLayout
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -151,16 +139,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/sunsandstar" />
-
-
-                android:text="Welcome"
-                android:fontFamily="cursive"
-                android:textSize="25sp"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:layout_marginTop="20dp"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -195,9 +173,8 @@
                 android:text="Water Reminder" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
+  <RelativeLayout
                 android:layout_below="@id/welcometext"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -208,16 +185,17 @@
                 android:textStyle="italic"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="15dp"
-                android:text="Care for your health to live better"/>
+                android:text="Care for your health to live better" >
+  <ProgressBar
+      android:id="@+id/dashboardprogressbar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/welcomecardview"
+      android:foregroundGravity="center_horizontal"
+      />
             </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-            <ProgressBar
-                android:id="@+id/dashboardprogressbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/welcomecardview"
-                android:foregroundGravity="center_horizontal"
-                />
+
+
 
             <LinearLayout
                 android:id="@+id/row1"

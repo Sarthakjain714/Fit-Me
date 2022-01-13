@@ -30,8 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BmiCalculator"
-            android:screenOrientation="portrait"/>
+
         <activity android:name=".waterreminder"
             android:screenOrientation="portrait"/>
         <activity android:name=".Meditation"
@@ -43,20 +42,15 @@
         <activity
             android:name=".BmiCalculator"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".DietPlanner"
-            android:screenOrientation="portrait" />
+<!--       /* <activity-->
+<!--            android:name=".DietPlanner.java"-->
+<!--            android:screenOrientation="portrait" />*/-->
         <activity
             android:name=".DietChart"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".waterreminder"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".settingsmeditation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Meditation"
             android:screenOrientation="portrait" />
 
         <activity
@@ -115,10 +109,6 @@
             android:screenOrientation="portrait" />
 
 
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
 
         <meta-data
