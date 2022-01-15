@@ -28,12 +28,12 @@ import org.apache.commons.math3.complex.Complex;
 public class BandStopTransform {
 
 
-    private double wc;
-    private double wc2;
     private final double a;
     private final double b;
     private final double a2;
     private final double b2;
+    private double wc;
+    private double wc2;
 
 
     public BandStopTransform(double fc,

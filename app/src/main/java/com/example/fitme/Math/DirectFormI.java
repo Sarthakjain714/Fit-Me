@@ -26,6 +26,10 @@ package com.example.fitme.Math;
  */
 public class DirectFormI extends DirectFormAbstract {
 
+    double m_x2; // x[n-2]
+    double m_y2; // y[n-2]
+    double m_x1; // x[n-1]
+    double m_y1; // y[n-1]
     public DirectFormI() {
         reset();
     }
@@ -48,9 +52,4 @@ public class DirectFormI extends DirectFormAbstract {
 
         return out;
     }
-
-    double m_x2; // x[n-2]
-    double m_y2; // y[n-2]
-    double m_x1; // x[n-1]
-    double m_y1; // y[n-1]
 }

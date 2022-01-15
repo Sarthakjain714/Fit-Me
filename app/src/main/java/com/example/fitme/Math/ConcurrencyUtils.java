@@ -64,29 +64,6 @@ public class ConcurrencyUtils {
 
     }
 
-    private static class CustomExceptionHandler implements Thread.UncaughtExceptionHandler {
-        public void uncaughtException(Thread t, Throwable e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private static class CustomThreadFactory implements ThreadFactory {
-        private static final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
-
-        private final Thread.UncaughtExceptionHandler handler;
-
-        CustomThreadFactory(Thread.UncaughtExceptionHandler handler) {
-            this.handler = handler;
-        }
-
-        public Thread newThread(Runnable r) {
-            Thread t = defaultFactory.newThread(r);
-            t.setUncaughtExceptionHandler(handler);
-            return t;
-        }
-    }
-
     /**
      * Returns the number of available processors.
      *
@@ -125,33 +102,6 @@ public class ConcurrencyUtils {
     }
 
     /**
-     * Returns the minimal size of 1D data for which four threads are used.
-     *
-     * @return the minimal size of 1D data for which four threads are used
-     */
-    public static int getThreadsBeginN_1D_FFT_4Threads() {
-        return THREADS_BEGIN_N_1D_FFT_4THREADS;
-    }
-
-    /**
-     * Returns the minimal size of 2D data for which threads are used.
-     *
-     * @return the minimal size of 2D data for which threads are used
-     */
-    public static int getThreadsBeginN_2D() {
-        return THREADS_BEGIN_N_2D;
-    }
-
-    /**
-     * Returns the minimal size of 3D data for which threads are used.
-     *
-     * @return the minimal size of 3D data for which threads are used
-     */
-    public static int getThreadsBeginN_3D() {
-        return THREADS_BEGIN_N_3D;
-    }
-
-    /**
      * Sets the minimal size of 1D data for which two threads are used.
      *
      * @param n the minimal size of 1D data for which two threads are used
@@ -162,6 +112,15 @@ public class ConcurrencyUtils {
         } else {
             THREADS_BEGIN_N_1D_FFT_2THREADS = n;
         }
+    }
+
+    /**
+     * Returns the minimal size of 1D data for which four threads are used.
+     *
+     * @return the minimal size of 1D data for which four threads are used
+     */
+    public static int getThreadsBeginN_1D_FFT_4Threads() {
+        return THREADS_BEGIN_N_1D_FFT_4THREADS;
     }
 
     /**
@@ -178,12 +137,30 @@ public class ConcurrencyUtils {
     }
 
     /**
+     * Returns the minimal size of 2D data for which threads are used.
+     *
+     * @return the minimal size of 2D data for which threads are used
+     */
+    public static int getThreadsBeginN_2D() {
+        return THREADS_BEGIN_N_2D;
+    }
+
+    /**
      * Sets the minimal size of 2D data for which threads are used.
      *
      * @param n the minimal size of 2D data for which threads are used
      */
     public static void setThreadsBeginN_2D(int n) {
         THREADS_BEGIN_N_2D = n;
+    }
+
+    /**
+     * Returns the minimal size of 3D data for which threads are used.
+     *
+     * @return the minimal size of 3D data for which threads are used
+     */
+    public static int getThreadsBeginN_3D() {
+        return THREADS_BEGIN_N_3D;
     }
 
     /**
@@ -222,7 +199,7 @@ public class ConcurrencyUtils {
         if (x < 1)
             throw new IllegalArgumentException("x must be greater or equal 1");
         if ((x & (x - 1)) == 0) {
-            return x; // x is already a power-of-two number 
+            return x; // x is already a power-of-two number
         }
         x |= (x >>> 1);
         x |= (x >>> 2);
@@ -298,6 +275,29 @@ public class ConcurrencyUtils {
             ex.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static class CustomExceptionHandler implements Thread.UncaughtExceptionHandler {
+        public void uncaughtException(Thread t, Throwable e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private static class CustomThreadFactory implements ThreadFactory {
+        private static final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
+
+        private final Thread.UncaughtExceptionHandler handler;
+
+        CustomThreadFactory(Thread.UncaughtExceptionHandler handler) {
+            this.handler = handler;
+        }
+
+        public Thread newThread(Runnable r) {
+            Thread t = defaultFactory.newThread(r);
+            t.setUncaughtExceptionHandler(handler);
+            return t;
         }
     }
 }

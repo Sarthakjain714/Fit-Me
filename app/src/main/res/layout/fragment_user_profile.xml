@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".user_profile"
+    tools:context=".Activities.LoginAndStarting.user_profile"
     android:background="#D7F7FD">
     <androidx.cardview.widget.CardView
         android:id="@+id/editprofile"

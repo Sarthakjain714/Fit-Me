@@ -49,37 +49,20 @@ import java.util.concurrent.Future;
  */
 public class DoubleFft1d {
 
-    private enum Plans {
-        SPLIT_RADIX, MIXED_RADIX, BLUESTEIN
-    }
-
-    private final int n;
-
-    private int nBluestein;
-
-    private int[] ip;
-
-    private double[] w;
-
-    private int nw;
-
-    private int nc;
-
-    private double[] wtable;
-
-    private double[] wtable_r;
-
-    private double[] bk1;
-
-    private double[] bk2;
-
-    private final Plans plan;
-
     private static final int[] factors = {4, 2, 3, 5};
-
     private static final double PI = 3.14159265358979311599796346854418516;
-
     private static final double TWO_PI = 6.28318530717958623199592693708837032;
+    private final int n;
+    private final Plans plan;
+    private int nBluestein;
+    private int[] ip;
+    private double[] w;
+    private int nw;
+    private int nc;
+    private double[] wtable;
+    private double[] wtable_r;
+    private double[] bk1;
+    private double[] bk2;
 
     /**
      * Creates new instance of DoubleFFT_1D.
@@ -135,6 +118,22 @@ public class DoubleFft1d {
                 makect(nc, w, nw);
             }
         }
+    }
+
+    private static int getReminder(int n, int[] factors) {
+        int reminder = n;
+
+        if (n <= 0) {
+            throw new IllegalArgumentException("n must be positive integer");
+        }
+
+        for (int i = 0; i < factors.length && reminder != 1; i++) {
+            int factor = factors[i];
+            while ((reminder % factor) == 0) {
+                reminder /= factor;
+            }
+        }
+        return reminder;
     }
 
     /**
@@ -677,28 +676,6 @@ public class DoubleFft1d {
         }
     }
 
-    private static int getReminder(int n, int[] factors) {
-        int reminder = n;
-
-        if (n <= 0) {
-            throw new IllegalArgumentException("n must be positive integer");
-        }
-
-        for (int i = 0; i < factors.length && reminder != 1; i++) {
-            int factor = factors[i];
-            while ((reminder % factor) == 0) {
-                reminder /= factor;
-            }
-        }
-        return reminder;
-    }
-
-    /* -------- initializing routines -------- */
-
-    /*---------------------------------------------------------
-       cffti: initialization of Complex FFT
-      --------------------------------------------------------*/
-
     void cffti(int n, int offw) {
         if (n == 1)
             return;
@@ -782,6 +759,12 @@ public class DoubleFft1d {
         }
 
     }
+
+    /* -------- initializing routines -------- */
+
+    /*---------------------------------------------------------
+       cffti: initialization of Complex FFT
+      --------------------------------------------------------*/
 
     void cffti() {
         if (n == 1)
@@ -1974,7 +1957,7 @@ public class DoubleFft1d {
     }
 
     /*-------------------------------------------------
-       radf3: Real FFT's forward processing of factor 3 
+       radf3: Real FFT's forward processing of factor 3
       -------------------------------------------------*/
     void radf3(final int ido, final int l1, final double[] in, final int in_off, final double[] out, final int out_off, final int offset) {
         final double taur = -0.5;
@@ -3370,11 +3353,6 @@ public class DoubleFft1d {
 
     }
 
-    /*----------------------------------------------------------------------
-       passf2: Complex FFT's forward/backward processing of factor 2;
-       isign is +1 for backward and -1 for forward transforms
-      ----------------------------------------------------------------------*/
-
     void passf2(final int ido, final int l1, final double[] in, final int in_off, final double[] out, final int out_off, final int offset, final int isign) {
         double t1i, t1r;
         int iw1;
@@ -3425,6 +3403,11 @@ public class DoubleFft1d {
             }
         }
     }
+
+    /*----------------------------------------------------------------------
+       passf2: Complex FFT's forward/backward processing of factor 2;
+       isign is +1 for backward and -1 for forward transforms
+      ----------------------------------------------------------------------*/
 
     /*----------------------------------------------------------------------
        passf3: Complex FFT's forward/backward processing of factor 3;
@@ -6544,5 +6527,9 @@ public class DoubleFft1d {
             }
 
         }
+    }
+
+    private enum Plans {
+        SPLIT_RADIX, MIXED_RADIX, BLUESTEIN
     }
 }
