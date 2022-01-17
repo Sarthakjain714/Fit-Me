@@ -1,6 +1,7 @@
 package com.example.fitme.Activities.LoginAndStarting;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,8 +33,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class user_profile extends Fragment implements View.OnClickListener {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
+    String gender;
     View view;
-    CircleImageView editmedicaldetails, editdetails;
+    CircleImageView editmedicaldetails, editdetails,userimage;
     String emialaddress;
     String username1;
     EditText username;
@@ -60,7 +62,7 @@ public class user_profile extends Fragment implements View.OnClickListener {
         editmedicaldetails = view.findViewById(R.id.editmedicaldetails);
         medicaldetailsinfo = view.findViewById(R.id.medicaldetialsinfo);
         medicaldetailsinfo.setText("");
-
+        userimage=view.findViewById(R.id.userimage);
         username.setVisibility(View.GONE);
 
         editdetails.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +91,8 @@ public class user_profile extends Fragment implements View.OnClickListener {
                         username1 = (String) document.getString("username");
                         Log.i("LOGGER", "string " + username1);
                         usernametextview.setText(username1);
+                        gender=(String)document.get("gender");
+                        Log.d("asds", "onComplete: "+gender);
                         List<String> group = (List<String>) document.get("medicaldetails");
                         int arraylength = group.size();
                         for (int i = 0; i < arraylength; i++) {
@@ -96,6 +100,12 @@ public class user_profile extends Fragment implements View.OnClickListener {
                             medicaldetailsinfo.setText(text + " " + (String) group.get(i) + ", ");
                         }
                         userprofileprogressbar.setVisibility(View.GONE);
+                        if(gender.equals("Male")){
+                            userimage.setImageResource(R.drawable.character);
+                        }
+                        else if(gender.equals("Female")){
+                            userimage.setImageResource(R.drawable.charactergirl);
+                        }
                     } else {
                         Log.d("LOGGER", "No such document");
                     }
@@ -104,6 +114,7 @@ public class user_profile extends Fragment implements View.OnClickListener {
                 }
             }
         });
+//
         emialaddresstextview.setText(emialaddress);
         savedetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,10 +139,17 @@ public class user_profile extends Fragment implements View.OnClickListener {
                 Toast.makeText(getContext(), "Edited successfully", Toast.LENGTH_SHORT).show();
             }
         });
-
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getContext(),loginactivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
         return view;
     }
-
     @Override
     public void onClick(View v) {
 
