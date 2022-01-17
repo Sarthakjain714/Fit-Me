@@ -83,7 +83,7 @@ public class signup extends AppCompatActivity{
                             });
 
 
-                            startActivity(new Intent(getApplicationContext(),medicaldetails.class));
+                            startActivity(new Intent(getApplicationContext(),genderselection.class));
 
                             finish();
                         }
