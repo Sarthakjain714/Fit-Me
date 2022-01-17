@@ -42,18 +42,18 @@ public class Cascade {
 
     private int numPoles;
 
+    public Cascade() {
+        m_numBiquads = 0;
+        m_biquads = null;
+        m_states = null;
+    }
+
     public int getNumBiquads() {
         return m_numBiquads;
     }
 
     public Biquad getBiquad(int index) {
         return m_biquads[index];
-    }
-
-    public Cascade() {
-        m_numBiquads = 0;
-        m_biquads = null;
-        m_states = null;
     }
 
     public void reset() {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Yoga_postures"
+    tools:context=".Activities.AllPosture.Yoga_postures"
     android:background="#6FC5D5EA">
 
         <LinearLayout

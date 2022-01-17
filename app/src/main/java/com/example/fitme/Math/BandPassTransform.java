@@ -27,14 +27,14 @@ import org.apache.commons.math3.complex.Complex;
  */
 public class BandPassTransform {
 
-    private double wc2;
-    private double wc;
     private final double a;
     private final double b;
     private final double a2;
     private final double b2;
     private final double ab;
     private final double ab_2;
+    private double wc2;
+    private double wc;
 
     public BandPassTransform(double fc, double fw, LayoutBase digital,
                              LayoutBase analog) {

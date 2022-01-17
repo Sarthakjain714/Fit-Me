@@ -28,8 +28,8 @@ import org.apache.commons.math3.complex.Complex;
  */
 public class LayoutBase {
 
-    private int m_numPoles;
     private final PoleZeroPair[] m_pair;
+    private int m_numPoles;
     private double m_normalW;
     private double m_normalGain;
 

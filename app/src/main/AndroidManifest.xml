@@ -21,7 +21,7 @@
         android:theme="@style/Theme.FitMe">
 
         <activity
-            android:name=".Startpage"
+            android:name=".Activities.LoginAndStarting.Startpage"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,81 +29,81 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BmiCalculator"
+        <activity android:name=".Activities.Bmi.BmiCalculator"
             android:screenOrientation="portrait"/>
-        <activity android:name=".waterreminder"
+        <activity android:name=".Activities.Water.waterreminder"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Meditation"
+        <activity android:name=".Activities.Meditation.Meditation"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".Oxygenprocess"></activity>
-        <activity android:name=".oxygencalculator" />
-        <activity android:name=".waternotificationsettings" />
+        <activity android:name=".Activities.Oxygen.Oxygenprocess"></activity>
+        <activity android:name=".Activities.Oxygen.oxygencalculator" />
+        <activity android:name=".Activities.Water.waternotificationsettings" />
 
         <activity
-            android:name=".DietPlanner"
+            android:name=".Activities.Bmi.DietPlanner"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DietChart"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".settingsmeditation"
+            android:name=".Activities.Bmi.DietChart"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".trikonasana"
+            android:name=".Activities.Meditation.settingsmeditation"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".Activities.ASANA.trikonasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".bhujangasana"
+            android:name=".Activities.ASANA.bhujangasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".tadasana"
+            android:name=".Activities.ASANA.tadasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".virabhadraasana"
+            android:name=".Activities.ASANA.virabhadraasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".genderselection"
+            android:name=".Activities.LoginAndStarting.genderselection"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".hastuttanasana"
+            android:name=".Activities.ASANA.hastuttanasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".chakraasana"
+            android:name=".Activities.ASANA.chakraasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Pranayaam"
+            android:name=".Activities.ASANA.Pranayaam"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".paschimottanasana"
+            android:name=".Activities.ASANA.paschimottanasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vrikshaasana"
+            android:name=".Activities.ASANA.vrikshaasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".gomukhasana"
+            android:name=".Activities.ASANA.gomukhasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".shavasana"
+            android:name=".Activities.ASANA.shavasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vajraasana"
+            android:name=".Activities.ASANA.vajraasana"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Yoga_postures"
+            android:name=".Activities.AllPosture.Yoga_postures"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".medicaldetails"
+            android:name=".Activities.Disease.medicaldetails"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".signup"
+            android:name=".Activities.LoginAndStarting.signup"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".loginactivity"
+            android:name=".Activities.LoginAndStarting.loginactivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity.MainActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
