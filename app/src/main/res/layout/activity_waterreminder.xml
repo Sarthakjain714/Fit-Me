@@ -10,7 +10,7 @@
         android:id="@+id/messagesettings"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/person"
+        android:src="@drawable/ic_baseline_settings_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toEndOf="@+id/waterlevel"
@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/purple_200"
-            android:src="@drawable/person"
+            android:src="@drawable/ic_baseline_add_24"
             android:layout_gravity="end"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"/>
@@ -80,6 +80,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
+
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="80dp"
                 android:id="@+id/addwater"
@@ -87,7 +88,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/person"
+                    android:src="@drawable/ic_pint_glass_svgrepo_com"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
@@ -120,7 +121,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/person"
+                    android:src="@drawable/ic_coffee_cup_svgrepo_com"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
@@ -153,7 +154,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/person"
+                    android:src="@drawable/ic_tea_svgrepo_com"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
@@ -186,7 +187,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/person"
+                    android:src="@drawable/ic_soft_drink_svgrepo_com"
                     android:layout_gravity="center_horizontal"
                     />
                 <TextView
@@ -219,7 +220,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/person"
+                    android:src="@drawable/ic_glass_svgrepo_com"
                     android:layout_gravity="center_horizontal"
                     />
 
