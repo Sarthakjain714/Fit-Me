@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public class genderselection extends AppCompatActivity {
     String email;
     FirebaseAuth fAtuh;
     FirebaseFirestore fStore;
+    ImageView male, female;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,8 @@ public class genderselection extends AppCompatActivity {
         fAtuh=FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
         email=fAtuh.getCurrentUser().getEmail();
+        male=findViewById(R.id.male);
+        female=findViewById(R.id.female);
         CardView maleCardview;
         int color1 = Color.parseColor("#0E1C36");
         int color2 = Color.parseColor("#C5D5EA");
@@ -43,6 +47,8 @@ public class genderselection extends AppCompatActivity {
                 femaleCardView.setCardBackgroundColor(color1);
                 maleCardview.setCardBackgroundColor(color2);
                 gender="Female";
+                male.setImageResource(R.drawable.bigender_male);
+                female.setImageResource(R.drawable.felmale);
                 selected=1;
             }
         });
@@ -51,11 +57,12 @@ public class genderselection extends AppCompatActivity {
             public void onClick(View v) {
                 maleCardview.setCardBackgroundColor(color1);
                 femaleCardView.setCardBackgroundColor(color2);
+                male.setImageResource(R.drawable.male);
+                female.setImageResource(R.drawable.bigender_female);
                 gender="Male";
                 selected=2;
             }
         });
-
         genderselected.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +78,6 @@ public class genderselection extends AppCompatActivity {
                 }
             }
         });
-
     }
     public static String getgender(){
         return gender;

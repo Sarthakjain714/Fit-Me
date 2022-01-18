@@ -83,6 +83,7 @@
         android:background="@drawable/buttonbg">
 
         <ImageView
+            android:id="@+id/female"
             android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:src="@drawable/bigender_female"
@@ -104,6 +105,7 @@
         app:cardBackgroundColor="#C5D5EA"
         >
         <ImageView
+            android:id="@+id/male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/bigender_male"

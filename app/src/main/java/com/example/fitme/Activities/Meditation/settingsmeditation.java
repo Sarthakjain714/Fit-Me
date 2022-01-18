@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fitme.R;
 import com.google.android.material.circularreveal.cardview.CircularRevealCardView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -24,7 +25,7 @@ public class settingsmeditation extends AppCompatActivity {
     RelativeLayout sounds;
     CircularRevealCardView tenmins, fivteenmins, twentymins;
     ImageView sound1sunrise, sound2, sound3;
-    CircleImageView savedmeditationchanges, meditationsoundoptions, times;
+    FloatingActionButton savedmeditationchanges, meditationsoundoptions, times;
     int totalmilliseconds;
 
     @Override
@@ -70,15 +71,15 @@ public class settingsmeditation extends AppCompatActivity {
                 linearbuttons.setLayoutParams(lp);
             }
         });
-        times.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timeoptions.setVisibility(View.VISIBLE);
-                LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) linearbuttons.getLayoutParams();
-                lp.setMargins(0, 120, 0, 0);
-                linearbuttons.setLayoutParams(lp);
-            }
-        });
+//        times.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                timeoptions.setVisibility(View.VISIBLE);
+//                LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) linearbuttons.getLayoutParams();
+//                lp.setMargins(0, 120, 0, 0);
+//                linearbuttons.setLayoutParams(lp);
+//            }
+//        });
         int timertime = 0;
         tenmins.setOnClickListener(new View.OnClickListener() {
             @Override
